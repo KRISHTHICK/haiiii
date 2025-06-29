@@ -29,6 +29,8 @@ def best_in_me_ui():
     #     return model_type, pose_image, outfit_image, event, prompt
     # else:
     #     return None, None, None, None, None
+
+# MODIFIED#02
     # ✅ Inside best_in_me_ui() -# ✅ Generate button logic
 
     if st.button("Generate Suggestion"):
