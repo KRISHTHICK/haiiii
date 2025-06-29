@@ -1,4 +1,4 @@
-# CHATCODE#01
+# CODE#01
 
 import streamlit as st
 
@@ -22,14 +22,23 @@ def best_in_me_ui():
     # Optional prompt
     prompt = st.text_area("Optional prompt (e.g., suggest something elegant & trendy)", key="prompt")
 
-    if st.button("Generate Suggestion"):
-        st.session_state['status'] = "Reading Inputs..."
-        st.success("Input captured. Move to next part.")
-        return model_type, pose_image, outfit_image, event, prompt
-    else:
-        return None, None, None, None, None
+    # CHNAGED to next phase
+    # if st.button("Generate Suggestion"):
+    #     st.session_state['status'] = "Reading Inputs..."
+    #     st.success("Input captured. Move to next part.")
+    #     return model_type, pose_image, outfit_image, event, prompt
+    # else:
+    #     return None, None, None, None, None
+    # ✅ Inside best_in_me_ui() -# ✅ Generate button logic
 
-# CHATCODE#02
+    if st.button("Generate Suggestion"):
+        if not pose_image or not outfit_image or not event:
+            st.warning("⚠️ Please upload all required files and enter the event name.")
+        else:
+            generate_caption_and_pose(pose_image, outfit_image, event, prompt, model_type)
+
+
+# CODE#02
 
 import time
 import base64
