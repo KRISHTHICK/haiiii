@@ -45,14 +45,20 @@ def best_in_me_ui():
 import time
 import base64
 from components.status_tracker import show_stage
+from components.pose_reader import mock_pose_analysis  # ✅ Import this #MODIFIED#03
 
 def generate_caption_and_pose(pose_image, outfit_image, event, prompt, model_type):
     show_stage("Reading Images and Inputs...")
 
     # Simulate image conversion (mocked for now)
     time.sleep(1)
-    pose_str = f"[User Pose Uploaded]"
-    outfit_str = f"[Outfit Image Uploaded]"
+    # pose_str = f"[User Pose Uploaded]"
+    # outfit_str = f"[Outfit Image Uploaded]"
+
+# MODIFIED#03
+    # ✅ Simulated pose detection
+    pose_str = mock_pose_analysis()
+    outfit_str = "[Outfit Image Uploaded]"
 
     # Format prompt
     full_prompt = f"""
